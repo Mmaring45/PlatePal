@@ -88,10 +88,10 @@ addRecipeBtn.addEventListener('click', () => {
   addRecipeCard(name, ingredients, instructions, category);
 });
 
-// --- Low-level Search / filter functionality (simple DOM methods, for-loops)
+// SEARCH / FILTER
 var searchInput = document.getElementsByClassName('search-bar')[0];
 
-function filterRecipesLowLevel(query) {
+function filterRecipes(query) {
   var term = (query || '').toLowerCase().trim();
 
   // get all recipe card elements
@@ -107,7 +107,7 @@ function filterRecipesLowLevel(query) {
       nameText = (nameEls[0].textContent || '').toLowerCase();
     }
 
-    // get ingredients text by iterating LI elements inside .ingredients-list
+    // get ingredients text 
     var ingredientsText = '';
     var ingLists = card.getElementsByClassName('ingredients-list');
     if (ingLists.length > 0) {
@@ -139,6 +139,6 @@ function filterRecipesLowLevel(query) {
 
 if (searchInput) {
   searchInput.addEventListener('input', function (e) {
-    filterRecipesLowLevel(e.target.value);
+    filterRecipes(e.target.value);
   });
 }
